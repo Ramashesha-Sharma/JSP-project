@@ -2,17 +2,25 @@ package com.carlend.beans;
 
 public class CarBean {
    private String CarNo,CarName,Model;
-   private int NoOfCars,lentCars;
+   private int NoOfCars,lentCars,rent;
    
    public CarBean() {}
 
-public CarBean(String carNo, String carName, String model, int noOfCars) {
+public CarBean(String carNo, String carName, String model, int noOfCars,int rent) {
 	super();
 	CarNo = carNo;
 	CarName = carName;
 	Model = model;
 	NoOfCars = noOfCars;
-	
+	this.rent=rent;
+}
+
+public int getRent() {
+	return rent;
+}
+
+public void setRent(int rent) {
+	this.rent = rent;
 }
 
 public int getLentCars() {

@@ -18,12 +18,13 @@ public class CarDao {
 		int status=0;
 		try{
 			Connection con=DB.getCon();
-			PreparedStatement ps=con.prepareStatement("insert into car values(?,?,?,?,?)");
+			PreparedStatement ps=con.prepareStatement("insert into car values(?,?,?,?,?,?)");
 			ps.setString(1,bean.getCarNo());
 			ps.setString(2,bean.getCarName());
 			ps.setString(3,bean.getModel());
 			ps.setInt(4,bean.getNoOfCars());
-			ps.setInt(5,0);
+			ps.setInt(5,bean.getRent());
+			ps.setInt(6,0);
 			status=ps.executeUpdate();
 			con.close();
 			
@@ -43,7 +44,9 @@ public class CarDao {
 				bean.setCarName(rs.getString("carName"));
 				bean.setModel(rs.getString("carModel"));
 				bean.setNoOfCars(rs.getInt("noOfCars"));
+				bean.setRent(rs.getInt("rent"));
 				bean.setLentCars(rs.getInt("lentCars"));
+				
 				
 				list.add(bean);
 			}

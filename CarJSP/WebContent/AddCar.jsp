@@ -18,7 +18,9 @@ String model=request.getParameter("model");
 
 String snoOfCars=request.getParameter("noOfCars");
 int noOfCars=Integer.parseInt(snoOfCars);
-CarBean bean=new CarBean(carNo,name,model,noOfCars);
+String srent=request.getParameter("rent");
+int rent=Integer.parseInt(srent);
+CarBean bean=new CarBean(carNo,name,model,noOfCars,rent);
 int i=CarDao.save(bean);
 if(i>0){
 	out.println("<h3>Car Model saved successfully</h3>");
